@@ -1,0 +1,23 @@
+<apex:page Controller="JQueryBeforeunloadController" title="JQuery Beforeunload" showHeader="true" sidebar="false" tabStyle="Account">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<apex:form id="form">
+		<apex:pageBlock >
+			<apex:pageMessages />
+			<apex:inputText value="{!input}" styleClass="inputs" />
+			<apex:commandButton value="Go!!" styleClass="buttons" action="{!doClick}" rerender="form" />
+		</apex:pageBlock>
+	</apex:form>
+	<script>
+		$j = jQuery.noConflict();
+		$j(function(){
+		    $j('.inputs').change(function() {
+		    	$j(window).on('beforeunload', function() {
+		        	return '投稿が完了していません。このまま移動しますか？';
+		        });
+		    });
+		    $j('.buttons').click(function() {
+		        $j(window).off('beforeunload');
+		    });
+		});
+	</script>
+</apex:page>
