@@ -1,5 +1,6 @@
-<apex:page Controller="JQueryBeforeunloadController" title="JQuery Beforeunload" showHeader="true" sidebar="false" tabStyle="Account">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<apex:page Controller="JQueryBeforeunloadController" title="JQuery Beforeunload" showHeader="true" sidebar="false" tabStyle="Account" id="page">
+	<apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+	
 	<apex:form id="form">
 		<apex:pageBlock >
 			<apex:pageMessages />

@@ -1,5 +1,5 @@
 /*
- * ページ切替警告・コントローラーテストクラス
+ * ページ切替警告
  * © 2013 Force.com Developer
  * ----------------------------------------
  * @createdDate      : 2013/01/01
@@ -19,10 +19,10 @@ private class JQueryBeforeunloadControllerTest {
         System.debug('◆◆◆◆JQueryBeforeunloadControllerTest:START');
         
         // ユーザ
-        User objUser = getUser();
+        User user = getUser();
         
         // テスト実施
-        System.RunAs(objUser) {
+        System.RunAs(user) {
             
             // カレントページにパラメータを設定
 	        PageReference pageRef = getPageReference();
@@ -48,10 +48,10 @@ private class JQueryBeforeunloadControllerTest {
         System.debug('◆◆◆◆doClickTest:START');
         
         // ユーザ
-        User objUser = getUser();
+        User user = getUser();
         
         // テスト実施
-        System.RunAs(objUser) {
+        System.RunAs(user) {
             
             // カレントページにパラメータを設定
 	        PageReference pageRef = getPageReference();
