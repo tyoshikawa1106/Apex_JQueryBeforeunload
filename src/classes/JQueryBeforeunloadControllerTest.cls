@@ -1,96 +1,47 @@
-/*
+/**
  * ページ切替警告
  * © 2013 Force.com Developer
  * ----------------------------------------
- * @createdDate      : 2013/01/01
- * @createdName      : TAIKI,YOSHIKAWA
- * ----------------------------------------
- * @lastModifiedDate : 2013/01/01
- * @lastModifiedName : TAIKI,YOSHIKAWA
+ * @createdName      : Taiki,Yoshikawa
+ * @lastModifiedName : Taiki,Yoshikawa
  * ----------------------------------------
  */
 @isTest
 private class JQueryBeforeunloadControllerTest {
 
-    /*
-	 * コンストラクタ・テスト
-	 */
+    /**
+     * コンストラクタ
+     */
     static testMethod void JQueryBeforeunloadControllerTest() {
-        System.debug('◆◆◆◆JQueryBeforeunloadControllerTest:START');
-        
-        // ユーザ
-        User user = getUser();
-        
-        // テスト実施
-        System.RunAs(user) {
             
-            // カレントページにパラメータを設定
-	        PageReference pageRef = getPageReference();
-	        Test.setCurrentPage(pageRef);
-	        
-            // テスト開始
-            Test.startTest();
-            
-            // コンストラクタ
-            JQueryBeforeunloadController cls = new JQueryBeforeunloadController();
-            
-            // テスト終了
-            Test.stopTest();
-        }
+        Test.startTest();
         
-        System.debug('◆◆◆◆JQueryBeforeunloadControllerTest:END');
+        // コンストラクタ
+        JQueryBeforeunloadController cls = new JQueryBeforeunloadController();
+        
+        Test.stopTest();
     }
     
-    /*
-	 * ボタンクリック処理・テスト
-	 */
+    /**
+     * ボタンクリック処理
+     */
     static testMethod void doClickTest() {
-        System.debug('◆◆◆◆doClickTest:START');
+            
+        Test.startTest();
         
-        // ユーザ
-        User user = getUser();
+        // コンストラクタ
+        JQueryBeforeunloadController cls = new JQueryBeforeunloadController();
+        // ボタンクリック処理
+        cls.doClick();
+        System.assertEquals(String.isEmpty(cls.input), true);
         
-        // テスト実施
-        System.RunAs(user) {
-            
-            // カレントページにパラメータを設定
-	        PageReference pageRef = getPageReference();
-	        Test.setCurrentPage(pageRef);
-	        
-            // テスト開始
-            Test.startTest();
-            
-            // コンストラクタ
-            JQueryBeforeunloadController cls = new JQueryBeforeunloadController();
-            // ボタンクリック処理
-            cls.doClick();
-            System.assertEquals(String.isEmpty(cls.input), true);
-            
-            // 値を指定
-            cls.input = 'OK!!';
-            
-            // ボタンクリック処理
-            cls.doClick();
-            System.assertEquals(String.isEmpty(cls.input), false);
-            
-            // テスト終了
-            Test.stopTest();
-        }
+        // 値を指定
+        cls.input = 'OK!!';
         
-        System.debug('◆◆◆◆doClickTest:END');
-    }
-    
-    /*
-     * ユーザ取得
-     */
-    private static User getUser() {
-    	return [select Id from User where Id =: UserInfo.getUserId() limit 1];
-    }
-    
-    /*
-     * テストページ取得
-     */
-    private static PageReference getPageReference() {
-    	return new PageReference('TestPage');
+        // ボタンクリック処理
+        cls.doClick();
+        System.assertEquals(String.isEmpty(cls.input), false);
+        
+        Test.stopTest();
     }
 }
