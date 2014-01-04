@@ -1,4 +1,4 @@
-Apex_IsJQuery_Beforeunload
+Apex_JQueryBeforeunload
 ==========================
 
 JQueryを使った画面移動時に警告する処理のサンプルコードです。  
